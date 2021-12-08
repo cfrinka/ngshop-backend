@@ -13,6 +13,10 @@ router.get(`/`, async (req, res) =>{
     res.send(userList);
 })
 
+router.get('/health', async (req, res) => {
+    res.send('working')
+})
+
 router.get('/:id', async(req,res)=>{
     const user = await User.findById(req.params.id).select('-passwordHash');
 
